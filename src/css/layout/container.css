@@ -1,0 +1,106 @@
+/* ========== ESTILOS PARA MANIPULAR EL LAYOUT DE MIS CONTENEDORES ========== */
+
+/* Esta hoja contiene estilos que permiten manejar el posicionamiento y comportamiento del contenido de la web. Principalmente aplica estilos flex y contiene sus media queries */
+
+/* El "wrapper" es lo que me centra el contenido tanto por los laterales como por arriba aplicando paddings. Es un estilo aparte del "container" para no tener que hacer estilos que pisen el espaciado. */
+
+.wrapper {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    align-items: center;
+    /* background-color: red; */
+    padding: 8em 5%;
+    gap: 2em;
+}
+
+.wrapper--background::before {
+    content: "";
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.hero {
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.hero--background::before {
+    height: 80vh;
+    background-image: url(../../assets/images/hero-background.jpg);
+}
+
+/* Este container aplica un "display flex" porque puede que no use siempre el "wrapper" para darle esta propiedad a mis contenedores */
+
+.container {
+    display: flex;
+    background-color: aqua;
+}
+
+/* Los siguientes estilos son para manipular el posicionamiento de los elementos dentro del contenedor */
+
+.container--column {
+    flex-direction: column;
+}
+
+.container--row {
+    flex-direction: row;
+}
+
+.container--reverse {
+    flex-direction: row-reverse;
+}
+
+.container--center {
+    align-items: center;
+}
+
+/* =========== MEDIA QUERIES ============= */
+
+@media screen and (min-width: 375px) {
+    .wrapper {
+        padding: 8em 10%;
+    }
+
+    .hero {
+        height: 80vh;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    /* .img {
+        max-height: 60vh;
+    } */
+}
+
+@media screen and (min-width: 900px) {
+    .wrapper {
+        grid-auto-flow: column;
+    }
+}
+
+/* ======================================= */
+
+.container--dark {
+    background-color: black;
+}
+
+.container--light {
+    background-color: bisque;
+}
+
+.img {
+    width: 100%;
+}
+
+.img--shadow {
+    box-shadow: orange 16px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+.img--shadow-reversed {
+    box-shadow: orange -16px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
