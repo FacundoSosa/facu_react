@@ -7,7 +7,7 @@ function Form() {
     const form = useRef()
     const handleSubmit = (e) => {
         e.preventDefault()
-        emailjs
+        /* emailjs
             .sendForm('service_wokjpln', 'template_diq3ivy', form.current, {
                 publicKey: 'pTggeyXlvywUQRo28',
             })
@@ -18,30 +18,30 @@ function Form() {
                 (error) => {
                     alert("ERROR: tu email no pudo ser enviado " + error.text)
                 },
-            );
-        form.reset()
+            ); */
+        console.log(form.current);
     }
 
   return (
     <form ref={form} onSubmit={handleSubmit}>
       <Input 
         labelText="Nombre"
-        inputName="name"
+        inputName="user_name"
         inputType="text"
       />
       <Input 
         labelText="Telefono"
-        inputName="number"
+        inputName="user_number"
         inputType="text"
       />
       <Input 
         labelText="E-mail"
-        inputName="email"
+        inputName="user_email"
         inputType="email"
       />
       <TextArea 
         labelText="Dejá tu mensaje"
-        textAreaName="message"
+        textAreaName="user_message"
         textAreaRows={8}
       />
       <button type='submit'>Enviar</button>
