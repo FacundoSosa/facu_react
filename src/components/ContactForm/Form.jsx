@@ -7,7 +7,7 @@ function Form() {
     const form = useRef()
     const handleSubmit = (e) => {
         e.preventDefault()
-        /* emailjs
+        emailjs
             .sendForm('service_wokjpln', 'template_diq3ivy', form.current, {
                 publicKey: 'pTggeyXlvywUQRo28',
             })
@@ -18,7 +18,7 @@ function Form() {
                 (error) => {
                     alert("ERROR: tu email no pudo ser enviado " + error.text)
                 },
-            ); */
+            );
         console.log(form.current);
     }
 
