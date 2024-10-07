@@ -1,13 +1,19 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import TextArea from './TextArea'
 import Input from './Input'
 import emailjs from '@emailjs/browser';
 
 function Form() {
     const form = useRef()
+    const required = useState(false)
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        emailjs
+        console.log(form.current);
+        form.current.reset()
+        
+        
+        /* emailjs
             .sendForm('service_wokjpln', 'template_diq3ivy', form.current, {
                 publicKey: 'pTggeyXlvywUQRo28',
             })
@@ -18,31 +24,34 @@ function Form() {
                 (error) => {
                     alert("ERROR: tu email no pudo ser enviado " + error.text)
                 },
-            );
-        form.reset()
+            ); */
     }
 
   return (
     <form ref={form} onSubmit={handleSubmit}>
       <Input 
         labelText="Nombre"
-        inputName="name"
+        inputName="user_name"
         inputType="text"
-      />
+        required={true}
+        />
       <Input 
         labelText="Telefono"
-        inputName="number"
+        inputName="user_phone"
         inputType="text"
-      />
+        required={true}
+        />
       <Input 
         labelText="E-mail"
-        inputName="email"
+        inputName="user_email"
         inputType="email"
-      />
+        required={false}
+        />
       <TextArea 
         labelText="Dejá tu mensaje"
-        textAreaName="message"
+        textAreaName="user_message"
         textAreaRows={8}
+        required={false}
       />
       <button type='submit'>Enviar</button>
     </form>
